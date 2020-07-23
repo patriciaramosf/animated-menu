@@ -3,10 +3,6 @@ html{
     background-color: #8980F5;
     font-family: 'Bebas Neue', cursive;
 }
-li{
-    list-style: none;
-    background-color: transparent;
-}
 .toggle{
     position:fixed;
     z-index:100;
@@ -21,9 +17,13 @@ li{
     justify-content: center;
     align-items: center;
     -webkit-box-shadow: 10px 10px 10px -8px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 10px -8px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 10px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 10px -8px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 10px -8px rgba(0,0,0,0.75);
 
+}
+i{
+    padding:20px;
+    font-size:20px;
 }
 .main{
     height:100vh;
@@ -50,22 +50,50 @@ navigation{
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    margin-right:-80px;
 }
 navigation a{
     text-decoration: none;
-    font-size:75px;
+    font-size:40px;
     color:#313638;
+    display: inline-block;
+    margin-left:40px;
+    animation: addColor 1s ease-in-out;
 }
-i{
-    padding:20px;
-    font-size:20px;
+navigation a:hover{
+    animation-direction: right;
+    animation-iteration-count: 2;
+    animation-fill-mode: forwards;
+} 
+a:hover + .subtitle {
+    animation: moveAndBack 1s ease-in-out;
+    animation-direction: right;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+a:hover + .subtitle:after {
+    content:'';
+    display:block;
+    height:0.2em;
+    width:35%;
+    margin:auto;
+    border-bottom:solid 1px rgba(0,0,0,0.2);
+    position:absolute;
+    left:0;
+  }
+
+.list_container{
+    display:flex;
+    align-items: center;
+}
+.subtitle{
+    margin-left:20px;
 }
 .menu_closed{
     transform: scale(0,0.1);
     opacity:0;
 }
-
 @media only screen and (min-width: 768px) {
     .title {
       font-size:92px;
@@ -76,13 +104,26 @@ i{
         top:25px;
         right:40px;
       }
+      navigation{
+        margin-right:-140px;
+      }
+      navigation a{
+        font-size:75px;
+      }
   }
 
   @media only screen and (min-width: 1024px) {
     .main {
       font-size:122px;
     }
+    navigation{
+        margin-right:-280px;
+      }
+      .subtitle{
+          font-size:24px;
+      }
   }
+
 .white{
     background-color:white;
 }
@@ -94,4 +135,13 @@ i{
 }
 .iconWhite{
     color:white;
+}
+
+@keyframes moveAndBack {
+    0% { transform: translate(0); }
+    25% { transform: translateX(5px);color:#8980F5; }
+    100% { transform: translateX(5px); color:#8980F5;}
+}
+@keyframes addColor {
+    100% { color:#8980F5;box-shadow: inset 0 -40px 0 rgba(137, 128, 245, 0.4)}
 }
