@@ -59,7 +59,7 @@ navigation a{
     color:#313638;
     display: inline-block;
     margin-left:40px;
-    animation: addColor 1s ease-in-out;
+    animation: addColorMobile 1s ease-in-out;
 }
 navigation a:hover{
     animation-direction: right;
@@ -109,6 +109,7 @@ a:hover + .subtitle:after {
       }
       navigation a{
         font-size:75px;
+        animation: addColor 1s ease-in-out;
       }
   }
 
@@ -144,4 +145,7 @@ a:hover + .subtitle:after {
 }
 @keyframes addColor {
     100% { color:#8980F5;box-shadow: inset 0 -40px 0 rgba(137, 128, 245, 0.4)}
+}
+@keyframes addColorMobile {
+    100% { color:#8980F5;box-shadow: inset 0 -20px 0 rgba(137, 128, 245, 0.4)}
 }
