@@ -94,6 +94,11 @@ a:hover + .subtitle:after {
     transform: scale(0,0.1);
     opacity:0;
 }
+@media only screen and (max-width: 374px) {
+      navigation{
+        margin-right:-40px;
+      }
+  }
 @media only screen and (min-width: 768px) {
     .title {
       font-size:92px;
